@@ -1,4 +1,4 @@
-![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/core_concepts&empty)
+
 # Core Concepts (13%)
 
 kubernetes.io > Documentation > Reference > kubectl CLI > [kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
@@ -11,7 +11,8 @@ kubernetes.io > Documentation > Tasks > Access Applications in a Cluster > [Acce
 
 kubernetes.io > Documentation > Tasks > Access Applications in a Cluster > [Use Port Forwarding to Access Applications in a Cluster](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)
 
-### Create a namespace called 'mynamespace' and a pod with image nginx called nginx on this namespace
+### 「mynamespace」という名前空間を作成し、この名前空間にnginxポッドを作成します。
+原文: `Create a namespace called 'mynamespace' and a pod with image nginx called nginx on this namespace`
 
 <details><summary>show</summary>
 <p>
@@ -24,7 +25,8 @@ kubectl run nginx --image=nginx --restart=Never -n mynamespace
 </p>
 </details>
 
-### Create the pod that was just described using YAML
+### 先ほど説明したポッドをYAMLを使って作成します。
+原文: `Create the pod that was just described using YAML`
 
 <details><summary>show</summary>
 <p>
@@ -71,7 +73,8 @@ kubectl run nginx --image=nginx --restart=Never --dry-run -o yaml | kubectl crea
 </p>
 </details>
 
-### Create a busybox pod (using kubectl command) that runs the command "env". Run it and see the output
+### 「env」コマンドを実行するbusyboxポッドを作成します(kubectlコマンドを使用)。それを実行して、出力を確認してください。
+原文: `Create a busybox pod (using kubectl command) that runs the command "env". Run it and see the output`
 
 <details><summary>show</summary>
 <p>
@@ -87,7 +90,8 @@ kubectl logs busybox
 </p>
 </details>
 
-### Create a busybox pod (using YAML) that runs the command "env". Run it and see the output
+### 「env」コマンドを実行するbusyboxポッドを作成します(YAMLを使用)。それを実行して、出力を確認してください。
+原文: `Create a busybox pod (using YAML) that runs the command "env". Run it and see the output`
 
 <details><summary>show</summary>
 <p>
@@ -128,7 +132,8 @@ kubectl logs busybox
 </p>
 </details>
 
-### Get the YAML for a new namespace called 'myns' without creating it
+### 新しい名前空間 'myns' を作成せずに YAML を取得します。
+原文: `Get the YAML for a new namespace called 'myns' without creating it`
 
 <details><summary>show</summary>
 <p>
@@ -140,7 +145,8 @@ kubectl create namespace myns -o yaml --dry-run
 </p>
 </details>
 
-### Get the YAML for a new ResourceQuota called 'myrq' with hard limits of 1 CPU, 1G memory and 2 pods without creating it
+### 1CPU、1Gメモリ、2ポッドのハードリミットを持つ新しいResourceQuota 'myrq' を作成せずに YAML を取得します。
+原文: `Get the YAML for a new ResourceQuota called 'myrq' with hard limits of 1 CPU, 1G memory and 2 pods without creating it`
 
 <details><summary>show</summary>
 <p>
@@ -152,7 +158,8 @@ kubectl create quota myrq --hard=cpu=1,memory=1G,pods=2 --dry-run -o yaml
 </p>
 </details>
 
-### Get pods on all namespaces
+### 全ての名前空間のポッドを取得します。
+原文: `Get pods on all namespaces`
 
 <details><summary>show</summary>
 <p>
@@ -164,7 +171,8 @@ kubectl get po --all-namespaces
 </p>
 </details>
 
-### Create a pod with image nginx called nginx and allow traffic on port 80
+### ポート80のトラフィックを許可したnginxポッドを作成します。
+原文: `Create a pod with image nginx called nginx and allow traffic on port 80`
 
 <details><summary>show</summary>
 <p>
@@ -176,7 +184,8 @@ kubectl run nginx --image=nginx --restart=Never --port=80
 </p>
 </details>
 
-### Change pod's image to nginx:1.7.1. Observe that the pod will be killed and recreated as soon as the image gets pulled
+### ポッドのイメージをnginx:1.7.1に変更します。イメージがPullされるとすぐにポッドがKillされ、再作成されることを確認します。
+原文: `Change pod's image to nginx:1.7.1. Observe that the pod will be killed and recreated as soon as the image gets pulled`
 
 <details><summary>show</summary>
 <p>
@@ -196,7 +205,8 @@ kubectl get po nginx -o jsonpath='{.spec.containers[].image}{"\n"}'
 </p>
 </details>
 
-### Get nginx pod's ip created in previous step, use a temp busybox image to wget its '/'
+### 前のステップで作成したnginxポッドのIPを取得し、一時的なbusyboxイメージを使用して'/'を取得します。
+原文: `Get nginx pod's ip created in previous step, use a temp busybox image to wget its '/'`
 
 <details><summary>show</summary>
 <p>
@@ -219,7 +229,8 @@ kubectl run busybox --image=busybox --env="NGINX_IP=$NGINX_IP" --rm -it --restar
 </p>
 </details>
 
-### Get pod's YAML
+### ポッドのYAMLを取得します。
+原文: `Get pod's YAML`
 
 <details><summary>show</summary>
 <p>
@@ -237,7 +248,8 @@ kubectl get po nginx --output=yaml
 </p>
 </details>
 
-### Get information about the pod, including details about potential issues (e.g. pod hasn't started)
+### 潜在的な問題の詳細を含むポッドの情報を取得します。(例: ポッドが起動していない)
+原文: `Get information about the pod, including details about potential issues (e.g. pod hasn't started)`
 
 <details><summary>show</summary>
 <p>
@@ -249,7 +261,8 @@ kubectl describe po nginx
 </p>
 </details>
 
-### Get pod logs
+### ポッドのログを取得します。
+原文: `Get pod logs`
 
 <details><summary>show</summary>
 <p>
@@ -261,7 +274,8 @@ kubectl logs nginx
 </p>
 </details>
 
-### If pod crashed and restarted, get logs about the previous instance
+### ポッドがクラッシュして再起動した場合、前のインスタンスのログを取得します。
+原文: `If pod crashed and restarted, get logs about the previous instance`
 
 <details><summary>show</summary>
 <p>
@@ -273,7 +287,8 @@ kubectl logs nginx -p
 </p>
 </details>
 
-### Execute a simple shell on the nginx pod
+### nginxポッドでシンプルなシェルを実行します。
+原文: `Execute a simple shell on the nginx pod`
 
 <details><summary>show</summary>
 <p>
@@ -285,7 +300,8 @@ kubectl exec -it nginx -- /bin/sh
 </p>
 </details>
 
-### Create a busybox pod that echoes 'hello world' and then exits
+### 'hello world'をechoして終了するbusyboxポッドを作成します。
+原文: `Create a busybox pod that echoes 'hello world' and then exits`
 
 <details><summary>show</summary>
 <p>
@@ -299,7 +315,8 @@ kubectl run busybox --image=busybox -it --restart=Never -- /bin/sh -c 'echo hell
 </p>
 </details>
 
-### Do the same, but have the pod deleted automatically when it's completed
+### 同じことをしますが、ポッドが完了したら自動的に削除されます。
+原文: `Do the same, but have the pod deleted automatically when it's completed`
 
 <details><summary>show</summary>
 <p>
@@ -312,7 +329,8 @@ kubectl get po # nowhere to be found :)
 </p>
 </details>
 
-### Create an nginx pod and set an env value as 'var1=val1'. Check the env value existence within the pod
+### nginxポッドを作成し、env値を「var1=val1」に設定します。ポッド内にenv値が存在することを確認します。
+原文: `Create an nginx pod and set an env value as 'var1=val1'. Check the env value existence within the pod`
 
 <details><summary>show</summary>
 <p>
