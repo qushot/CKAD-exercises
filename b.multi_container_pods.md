@@ -1,7 +1,7 @@
-![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)
 # Multi-container Pods (10%)
 
-### Create a Pod with two containers, both with image busybox and command "echo hello; sleep 3600". Connect to the second container and run 'ls'
+### 2つのコンテナを持つPodを作成し、両方にbusyboxイメージと"echo hello; sleep 3600"コマンドを含めます。2番目のコンテナに接続して'ls'を実行します。
+原文: `Create a Pod with two containers, both with image busybox and command "echo hello; sleep 3600". Connect to the second container and run 'ls'`
 
 <details><summary>show</summary>
 <p>
