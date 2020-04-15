@@ -1,11 +1,11 @@
-![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/observability&empty)
 # Observability (18%)
 
 ## Liveness and readiness probes
 
 kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness and Readiness Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)
 
-### Create an nginx pod with a liveness probe that just runs the command 'ls'. Save its YAML in pod.yaml. Run it, check its probe status, delete it.
+### 'ls' コマンドを実行するだけの liveness プローブで nginx ポッドを作成します。そのYAMLをpod.yamlに保存します。実行して、プローブの状態を確認し、削除します。
+原文: `Create an nginx pod with a liveness probe that just runs the command 'ls'. Save its YAML in pod.yaml. Run it, check its probe status, delete it.`
 
 <details><summary>show</summary>
 <p>
@@ -47,7 +47,8 @@ kubectl delete -f pod.yaml
 </p>
 </details>
 
-### Modify the pod.yaml file so that liveness probe starts kicking in after 5 seconds whereas the interval between probes would be 5 seconds. Run it, check the probe, delete it.
+### pod.yamlファイルを修正して、プローブ間の間隔が5秒であるのに対し、5秒後にlivenessプローブが起動するようにします。これを実行して、プローブをチェックし、削除します。
+原文: `Modify the pod.yaml file so that liveness probe starts kicking in after 5 seconds whereas the interval between probes would be 5 seconds. Run it, check the probe, delete it.`
 
 <details><summary>show</summary>
 <p>
@@ -90,7 +91,8 @@ kubectl delete -f pod.yaml
 </p>
 </details>
 
-### Create an nginx pod (that includes port 80) with an HTTP readinessProbe on path '/' on port 80. Again, run it, check the readinessProbe, delete it.
+### nginxポッド（ポート80を含む）を作成し、ポート80のパス'/'にHTTP readinessProbeを設定します。再度、実行してreadinessProbeをチェックし、削除します。
+原文: `Create an nginx pod (that includes port 80) with an HTTP readinessProbe on path '/' on port 80. Again, run it, check the readinessProbe, delete it.`
 
 <details><summary>show</summary>
 <p>
@@ -136,7 +138,8 @@ kubectl delete -f pod.yaml
 
 ## Logging
 
-### Create a busybox pod that runs 'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done'. Check its logs
+### 'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done' を実行するビジーボックスポッドを作成します。そのログをチェックします。
+原文: `Create a busybox pod that runs 'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done'. Check its logs`
 
 <details><summary>show</summary>
 <p>
@@ -151,7 +154,8 @@ kubectl logs busybox -f # follow the logs
 
 ## Debugging
 
-### Create a busybox pod that runs 'ls /notexist'. Determine if there's an error (of course there is), see it. In the end, delete the pod
+### 'ls /notexist'を実行するビジーボックスポッドを作成します。エラーが発生しているかどうかを判断します（もちろんあります）、それを参照してください。最後に、ポッドを削除する
+原文: `Create a busybox pod that runs 'ls /notexist'. Determine if there's an error (of course there is), see it. In the end, delete the pod`
 
 <details><summary>show</summary>
 <p>
@@ -167,7 +171,8 @@ kubectl delete po busybox
 </p>
 </details>
 
-### Create a busybox pod that runs 'notexist'. Determine if there's an error (of course there is), see it. In the end, delete the pod forcefully with a 0 grace period
+### 'notexist'を実行するビジーボックスポッドを作成します。エラーが発生しているかどうかを判断する（もちろんある）、それを見る。最終的には猶予期間0で強制的にポッドを削除する
+原文: `Create a busybox pod that runs 'notexist'. Determine if there's an error (of course there is), see it. In the end, delete the pod forcefully with a 0 grace period`
 
 <details><summary>show</summary>
 <p>
@@ -184,7 +189,8 @@ kubectl delete po busybox --force --grace-period=0
 </p>
 </details>
 
-### Get CPU/memory utilization for nodes ([metrics-server](https://github.com/kubernetes-incubator/metrics-server) must be running)
+### ノードのCPU/メモリ使用率を取得する ([metrics-server](https://github.com/kubernetes-incubator/metrics-server) が起動している必要があります)
+原文: `Get CPU/memory utilization for nodes ([metrics-server](https://github.com/kubernetes-incubator/metrics-server) must be running)`
 
 <details><summary>show</summary>
 <p>
